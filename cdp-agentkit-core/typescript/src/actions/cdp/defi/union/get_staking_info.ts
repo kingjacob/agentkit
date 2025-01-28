@@ -1,0 +1,1 @@
+// Similar to credit info but for staking details 

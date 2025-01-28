@@ -17,6 +17,7 @@ import { WrapEthAction } from "./wrap_eth";
 import { MORPHO_ACTIONS } from "./defi/morpho";
 import { PYTH_ACTIONS } from "./data/pyth";
 import { WOW_ACTIONS } from "./defi/wow";
+import { UNION_ACTIONS } from "./defi/union";
 
 /**
  * Retrieves all CDP action instances.
@@ -46,7 +47,8 @@ export function getAllCdpActions(): CdpAction<CdpActionSchemaAny>[] {
 export const CDP_ACTIONS = getAllCdpActions()
   .concat(MORPHO_ACTIONS)
   .concat(PYTH_ACTIONS)
-  .concat(WOW_ACTIONS);
+  .concat(WOW_ACTIONS)
+  .concat(UNION_ACTIONS);
 
 export {
   CdpAction,
