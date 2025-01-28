@@ -5,9 +5,7 @@ export const UNION_ADDRESSES_BY_NETWORK = {
     MARKET: "0x9FaF7E4Dc0d7C7C8D0DC7C2657c7436326e4E879",
     USDC: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
   },
-  'base-goerli': {
-    // Add testnet addresses
-  }
+
 };
 
 export const USER_MANAGER_ABI = [

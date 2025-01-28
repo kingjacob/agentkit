@@ -1,4 +1,4 @@
-import { Wallet } from "../../types";
+import { Wallet } from "@coinbase/coinbase-sdk";
 import { Decimal } from "decimal.js";
 import { UNION_ADDRESSES, USER_MANAGER_ABI, MARKET_ABI } from "./constants";
 

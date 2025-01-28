@@ -1,4 +1,4 @@
-import { Wallet } from "../../types";
+import { Wallet } from "@coinbase/coinbase-sdk";
 import { z } from "zod";
 import { Decimal } from "decimal.js";
 
@@ -7,6 +7,8 @@ import { UNION_ADDRESSES, MARKET_ABI, USER_MANAGER_ABI } from "./constants";
 
 const BORROW_PROMPT = `
 This tool allows borrowing USDC from the Union protocol.
+
+Important: Your wallet must be a registered member of Union protocol to borrow.
 
 It takes:
 - amount: The amount of USDC to borrow
@@ -84,11 +86,4 @@ export class UnionBorrowAction implements CdpAction<typeof UnionBorrowInput> {
   public description = BORROW_PROMPT;
   public argsSchema = UnionBorrowInput;
   public func = borrowFromUnion;
-}
-
-export class GetCreditInfoAction implements CdpAction<typeof GetCreditInfoInput> {
-  public name = "get_credit_info";
-  public description = GET_CREDIT_INFO_PROMPT;
-  public argsSchema = GetCreditInfoInput;
-  public func = getCreditInfo;
 } 

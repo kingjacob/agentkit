@@ -1,4 +1,4 @@
-import { Wallet } from "../../types";
+import { Wallet } from "@coinbase/coinbase-sdk";
 import { z } from "zod";
 import { Decimal } from "decimal.js";
 
@@ -8,6 +8,9 @@ import { UNION_ADDRESSES, USER_MANAGER_ABI } from "./constants";
 const TRUST_PROMPT = `
 This tool allows updating trust for a borrower in the Union protocol.
 
+Important: Your wallet must be a registered member of Union protocol to extend trust to others.
+You must also have staked UNION tokens to back your trust.
+
 It takes:
 - borrower: The address of the borrower to trust
 - amount: The amount of trust to extend (in USDC)
@@ -15,6 +18,8 @@ It takes:
 Examples:
 - borrower: "0x1234...5678" amount: "1000" to trust 1000 USDC
 - borrower: "0x1234...5678" amount: "500.5" to trust 500.5 USDC
+
+Note: The amount of trust you can extend is limited by your staked UNION tokens.
 `;
 
 export const UnionTrustInput = z

@@ -1,4 +1,4 @@
-import { Wallet } from "../../types";
+import { Wallet } from "@coinbase/coinbase-sdk";
 import { z } from "zod";
 import { Decimal } from "decimal.js";
 
@@ -28,11 +28,6 @@ export const GetCreditInfoInput = z.object({
     .optional()
     .describe("The account to check (defaults to sender)")
 }); 
-
-Examples:
-- amount: "1000" to borrow 1000 USDC
-- amount: "500.5" to borrow 500.5 USDC
-- borrower: "0x1234...5678" amount: "1000" to trust 1000 USDC 
 
 export async function getCreditInfo(
   wallet: Wallet,
@@ -70,4 +65,11 @@ export async function getCreditInfo(
   } catch (error) {
     return `Error getting credit info: ${error}`;
   }
+} 
+
+export class GetCreditInfoAction implements CdpAction<typeof GetCreditInfoInput> {
+  public name = "get_credit_info";
+  public description = GET_CREDIT_INFO_PROMPT;
+  public argsSchema = GetCreditInfoInput;
+  public func = getCreditInfo;
 } 
